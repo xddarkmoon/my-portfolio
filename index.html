@@ -400,19 +400,44 @@
     .skill-box-desc { font-size: .79rem; font-weight: 300; color: var(--green-lt); line-height: 1.72; }
 
     /* ═══════════════ EXPERIENCE ═══════════════ */
-    .experience-body { max-width: 1080px; margin: 0 auto; padding: 3.5rem 3.5rem 6rem; }
+    .experience-body { max-width: 1180px; margin: 0 auto; padding: 3.5rem 3.5rem 6rem; }
     .timeline { position: relative; padding-left: 2.5rem; }
     .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1.5px; background: var(--border); }
-    .timeline-item { position: relative; padding-bottom: 3.8rem; }
+    .timeline-item {
+      position: relative; padding-bottom: 4rem;
+      display: grid; grid-template-columns: 1fr 320px;
+      gap: 3rem; align-items: start;
+    }
     .timeline-item::before {
       content: ''; position: absolute; left: -2.5rem; top: .55rem;
       width: 9px; height: 9px; background: var(--green); border-radius: 50%;
       border: 2.5px solid var(--cream); box-shadow: 0 0 0 1.5px var(--green);
     }
+    .tl-text { min-width: 0; }
     .tl-date { font-family: var(--mono); font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; color: var(--green-lt); margin-bottom: .5rem; }
     .tl-role { font-family: var(--serif); font-size: 1.7rem; font-weight: 400; line-height: 1.2; color: var(--green2); }
     .tl-company { font-family: var(--mono); font-size: .73rem; color: var(--muted); letter-spacing: .06em; margin: .45rem 0 1rem; }
-    .tl-desc { font-size: .87rem; font-weight: 300; color: var(--green-lt); line-height: 1.9; max-width: 600px; }
+    .tl-desc { font-size: .87rem; font-weight: 300; color: var(--green-lt); line-height: 1.9; }
+    .tl-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .5rem;
+      align-content: start;
+    }
+    .tl-img-item {
+      aspect-ratio: 1/1; background: var(--cream2);
+      border: 1.5px solid var(--border); overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .tl-img-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .tl-img-ph { display: flex; flex-direction: column; align-items: center; gap: .4rem; color: var(--muted); }
+    .tl-img-ph svg { width: 22px; height: 22px; opacity: .28; }
+    .tl-img-ph span { font-family: var(--mono); font-size: .5rem; letter-spacing: .1em; text-transform: uppercase; }
+    .tl-img-cap { font-family: var(--mono); font-size: .5rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-top: .25rem; }
+    @media (max-width: 860px) {
+      .timeline-item { grid-template-columns: 1fr; }
+      .tl-images { grid-template-columns: repeat(3, 1fr); }
+    }
 
     /* ═══════════════ CONTACT ═══════════════ */
     .contact-body {
@@ -665,7 +690,7 @@
         <p class="hero-bio">
           I design reliable engineering solutions for both aviation and 
           space exploration, solutions that hold up under real-world constraints. 
-          I seek work that pushes my skills, collaborates with like-minded engineers 
+          I'm seeking work that pushes my skills, collaborates with like-minded engineers, 
           and challenges my diciplined problem-solving.
         </p>
         <div class="hero-actions">
@@ -695,7 +720,7 @@
           </p>
         </div>
         <div style="margin-top:2.2rem">
-          <a class="btn btn-ghost" href="resume.pdf">Download CV →</a>
+          <a class="btn btn-ghost" href="resume.pdf">Download Resume →</a>
         </div>
       </div><!-- /about-slide-left -->
       <div class="about-facts about-slide-right">
@@ -726,10 +751,7 @@
 
     <div class="project-item">
       <div class="proj-img-wrap proj-slide-left">
-        <!--
-          TO ADD IMAGE: replace the placeholder div below with:
-          <img src="images/project1.jpg" alt="Telemetry Platform">
-        -->
+          <img src="rake.png" alt="windrake">
         <div class="proj-img-placeholder">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
             <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
@@ -756,7 +778,7 @@
 
     <div class="project-item flip">
       <div class="proj-img-wrap proj-slide-right">
-        <!-- <img src="images/project2.jpg" alt="Config System"> -->
+          <img src="globe.png" alt="Matlab Sim">
         <div class="proj-img-placeholder">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
             <circle cx="12" cy="12" r="3"/>
@@ -770,9 +792,9 @@
         <div class="proj-num">02 · Undergraduate Research</div>
         <h3 class="proj-title">Gravity Anomaly Satellite Detection</h3>
         <p class="proj-desc">
-          Raft-consensus based key-value store with hot-reload semantics for
-          microservices. Handles 10k concurrent clients with strong consistency
-          guarantees and built-in audit logging.
+          Designing next GRACE satellite mission to utilize time dilation 
+          of atomics clocks to accurately measure gravity changes around the globe 
+          and replace current laser-ranging technology for 2032.
         </p>
         <div class="proj-tags">
           <span class="tag">MatLAB</span><span class="tag">Astrophysics</span>
@@ -784,7 +806,7 @@
 
     <div class="project-item">
       <div class="proj-img-wrap proj-slide-left">
-        <!-- <img src="images/project3.jpg" alt="OTA Firmware"> -->
+          <img src="robot.jpg" alt="2023 Robot">
         <div class="proj-img-placeholder">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
@@ -811,7 +833,7 @@
 
     <div class="project-item flip">
       <div class="proj-img-wrap proj-slide-right">
-        <!-- <img src="images/project4.jpg" alt="ML Inference"> -->
+          <img src="planter.png" alt="Planter">
         <div class="proj-img-placeholder">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
             <rect x="2" y="3" width="20" height="14" rx="2"/>
@@ -971,6 +993,7 @@
   <div class="experience-body">
     <div class="timeline">
       <div class="timeline-item reveal">
+        <div class="tl-text">
         <div class="tl-date">Sept 2024 — Present</div>
         <div class="tl-role">Aerodynamics Engineer</div>
         <div class="tl-company">CU Boulder Formula SAE Buffs Racing · Boulder, CO</div>
@@ -982,8 +1005,33 @@
           - Manufactured carbon fiber and fiberglass aero components using foam cores, molds, and vacuum bagging. <br>
           - Collaborated with chassis and suspension teams to tune ride height and suspension travel for ground-effect performance. <br>
         </div>
+        </div>
+        <div class="tl-images">
+          <div>
+            <div class="tl-img-item">
+              <!-- TO ADD IMAGE: replace div below with <img src="images/fsae-1.jpg" alt="photo"> -->
+              <div class="tl-img-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Photo 1</span></div>
+            </div>
+            <p class="tl-img-cap">Add caption here</p>
+          </div>
+          <div>
+            <div class="tl-img-item">
+              <!-- TO ADD IMAGE: replace div below with <img src="images/fsae-2.jpg" alt="photo"> -->
+              <div class="tl-img-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Photo 2</span></div>
+            </div>
+            <p class="tl-img-cap">Add caption here</p>
+          </div>
+          <div>
+            <div class="tl-img-item">
+              <!-- TO ADD IMAGE: replace div below with <img src="images/fsae-3.jpg" alt="photo"> -->
+              <div class="tl-img-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Photo 3</span></div>
+            </div>
+            <p class="tl-img-cap">Add caption here</p>
+          </div>
+        </div>
       </div>
       <div class="timeline-item reveal">
+        <div class="tl-text">
         <div class="tl-date">Sept 2025 — Present</div>
         <div class="tl-role">Undergraduate Researchar</div>
         <div class="tl-company">CU Boulder · Boulder, CO</div>
@@ -992,8 +1040,26 @@
           - Currently developing a MATLAB simulation to correlate recent GRACE satellite data to atomic clock time relativity. <br>
           - Finding advancements to better current atomic clock structures for future missions. <br>
         </div>
+        </div>
+        <div class="tl-images">
+          <div>
+            <div class="tl-img-item">
+              <!-- TO ADD IMAGE: replace div below with <img src="images/research-1.jpg" alt="photo"> -->
+              <div class="tl-img-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Photo 1</span></div>
+            </div>
+            <p class="tl-img-cap">Add caption here</p>
+          </div>
+          <div>
+            <div class="tl-img-item">
+              <!-- TO ADD IMAGE: replace div below with <img src="images/research-2.jpg" alt="photo"> -->
+              <div class="tl-img-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Photo 2</span></div>
+            </div>
+            <p class="tl-img-cap">Add caption here</p>
+          </div>
+        </div>
       </div>
       <div class="timeline-item reveal">
+        <div class="tl-text">
         <div class="tl-date">May 2025 — Aug 2025</div>
         <div class="tl-role">Aircraft Mechanics Intern</div>
         <div class="tl-company">Princeton Airport · Princeton, NJ</div>
@@ -1004,8 +1070,33 @@
           - Assisted with a full engine replacement on a Cirrus SR20, supporting removal, installation, operational checks, and documentation for FAA compliance.<br>
           - Evaluated component wear, tolerances, and operational limits, applying real-world safety margins and reliability constraints.<br>
         </div>
+        </div>
+        <div class="tl-images">
+          <div>
+            <div class="tl-img-item">
+              <!-- TO ADD IMAGE: replace div below with <img src="images/princeton-1.jpg" alt="photo"> -->
+              <div class="tl-img-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Photo 1</span></div>
+            </div>
+            <p class="tl-img-cap">Add caption here</p>
+          </div>
+          <div>
+            <div class="tl-img-item">
+              <!-- TO ADD IMAGE: replace div below with <img src="images/princeton-2.jpg" alt="photo"> -->
+              <div class="tl-img-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Photo 2</span></div>
+            </div>
+            <p class="tl-img-cap">Add caption here</p>
+          </div>
+          <div>
+            <div class="tl-img-item">
+              <!-- TO ADD IMAGE: replace div below with <img src="images/princeton-3.jpg" alt="photo"> -->
+              <div class="tl-img-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Photo 3</span></div>
+            </div>
+            <p class="tl-img-cap">Add caption here</p>
+          </div>
+        </div>
       </div>
       <div class="timeline-item reveal">
+        <div class="tl-text">
         <div class="tl-date">Sept 2021 - June 2024</div>
         <div class="tl-role">Design Captain</div>
         <div class="tl-company">FRC Team 1403 Cougar Robotics · Skillman, NJ</div>
@@ -1017,6 +1108,30 @@
           - Created and organized professional technical documentation, including CAD drawings, analyses, and design justifications, for formal review and competition judging.<br>
           - Coordinated a team of students, promoting clear communication, collaboration, and high engineering standards throughout the design cycle.<br>
           - Achieved team's highest-ever ranking 146th of 3290 teams globally.<br>
+        </div>
+        </div>
+        <div class="tl-images">
+          <div>
+            <div class="tl-img-item">
+              <!-- TO ADD IMAGE: replace div below with <img src="images/frc-1.jpg" alt="photo"> -->
+              <div class="tl-img-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Photo 1</span></div>
+            </div>
+            <p class="tl-img-cap">Add caption here</p>
+          </div>
+          <div>
+            <div class="tl-img-item">
+              <!-- TO ADD IMAGE: replace div below with <img src="images/frc-2.jpg" alt="photo"> -->
+              <div class="tl-img-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Photo 2</span></div>
+            </div>
+            <p class="tl-img-cap">Add caption here</p>
+          </div>
+          <div>
+            <div class="tl-img-item">
+              <!-- TO ADD IMAGE: replace div below with <img src="images/frc-3.jpg" alt="photo"> -->
+              <div class="tl-img-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Photo 3</span></div>
+            </div>
+            <p class="tl-img-cap">Add caption here</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1049,7 +1164,7 @@
           </div>
           <div class="ch-meta">
             <div class="ch-type">Email</div>
-            <div class="ch-val"><span class="__cf_email__" data-cfemail="03626f667b43667b626e736f662d606c6e">me@sarvamsheth.com</span></div>
+            <div class="ch-val"><span class="__cf_email__" data-cfemail="03626f667b43667b626e736f662d606c6e"><span class="__cf_email__" data-cfemail="5e333b1e2d3f2c283f332d363b2a36703d3133">[email&#160;protected]</span></span></div>
           </div>
           <div class="ch-arr">→</div>
         </a>
@@ -1089,7 +1204,7 @@
   <span>Built with HTML</span>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // ── Page switching ──────────────────────────────────────────────────────────
   function showPage(name) {
     // Deactivate all pages
@@ -1523,13 +1638,5 @@
         <li>A/B routing with configurable traffic splits and per-variant telemetry.</li>
         <li>Triton Inference Server backend with a FastAPI facade for clean REST and gRPC interfaces.</li>
       </ul>
-    </div>
-    <div class="pmod-link-row">
-      <a class="btn btn-solid" href="#">View on GitHub</a>
-      <a class="btn btn-outline" href="#">Read the Docs</a>
-    </div>
-  </div>
-</div>
-
 </body>
 </html>
