@@ -513,6 +513,7 @@
     .reveal.visible { opacity: 1; transform: none; }
 
     /* ─── RESPONSIVE ─── */
+    /* ── Tablet (≤860px) ── */
     @media (max-width: 860px) {
       nav { padding: 0 1.5rem; }
       .nav-links li button { padding: 0 .75rem; font-size: .63rem; }
@@ -527,9 +528,67 @@
       .skills-boxes { grid-template-columns: 1fr 1fr; }
       .contact-body { grid-template-columns: 1fr; gap: 3rem; }
       footer { flex-direction: column; gap: .6rem; text-align: center; }
+      .timeline-item { grid-template-columns: 1fr; }
+      .tl-images { grid-template-columns: repeat(3, 1fr); position: static; }
     }
+
+    /* ── Phone (≤520px) ── */
     @media (max-width: 520px) {
+      /* Nav */
+      nav { padding: 0 1rem; height: 52px; }
+      .nav-logo { font-size: .85rem; }
+      .nav-links { gap: 0; }
+      .nav-links li button { padding: 0 .5rem; font-size: .55rem; letter-spacing: .08em; }
+
+      /* Hero */
+      .hero-content { padding: 0 1.2rem 4rem; }
+      h1.hero-title { font-size: 2.6rem; }
+      .hero-bio { font-size: .88rem; }
+      .hero-actions { flex-direction: column; gap: .6rem; }
+      .hero-actions .btn { text-align: center; justify-content: center; }
+      .hero-scroll-hint { right: 1.2rem; }
+
+      /* Home about */
+      .home-about { padding: 3rem 1.2rem; }
+      .page-title { font-size: 1.9rem; }
+
+      /* Page headers */
+      .page-header { padding-left: 1.2rem; padding-right: 1.2rem; }
+      .page-header .page-title { font-size: 2rem; }
+
+      /* Projects */
+      .projects-list { padding-left: 1.2rem; padding-right: 1.2rem; padding-bottom: 3rem; }
+      .proj-title { font-size: 1.4rem; }
+      .proj-content { padding: 1.5rem 1.2rem; }
+
+      /* Skills */
+      .skills-body { padding: 2rem 1.2rem 4rem; }
       .skills-boxes { grid-template-columns: 1fr; }
+
+      /* Experience */
+      .experience-body { padding: 2rem 1.2rem 4rem; }
+      .timeline { padding-left: 1.8rem; }
+      .tl-role { font-size: 1.3rem; }
+      .tl-images { grid-template-columns: 1fr 1fr; }
+
+      /* Contact */
+      .contact-body { padding: 2rem 1.2rem 4rem; }
+      .contact-channel { padding: 1rem 1.1rem; gap: 1rem; }
+
+      /* Footer */
+      footer { padding: 1.4rem 1.2rem; flex-direction: column; gap: .5rem; text-align: center; }
+
+      /* Buttons */
+      .btn { font-size: .67rem; padding: .75rem 1.4rem; }
+
+      /* Project modals */
+      .pmod-header { padding: 0 1.2rem; }
+      .pmod-body { padding: 1.8rem 1.2rem 4rem; }
+      .pmod-title { font-size: 1.6rem; }
+      .pmod-meta { grid-template-columns: 1fr; }
+      .pmod-meta-item { border-right: none; border-bottom: 1.5px solid var(--border); }
+      .pmod-meta-item:last-child { border-bottom: none; }
+      .pmod-img-grid { grid-template-columns: 1fr; }
     }
 
     /* ═══════════════ PROJECT DETAIL MODAL ═══════════════ */
