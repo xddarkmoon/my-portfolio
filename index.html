@@ -854,7 +854,7 @@
       </div>
       <div class="proj-content proj-slide-left">
         <div class="proj-num">02 · Undergraduate Research</div>
-        <h3 class="proj-title">Gravity Anomaly Satellite Detection</h3>
+        <h3 class="proj-title">Gravity Anomaly Detection Satellite</h3>
         <p class="proj-desc">
           Designing next GRACE satellite mission to utilize time dilation 
           of atomics clocks to accurately measure gravity changes around the globe 
@@ -1545,59 +1545,60 @@
     <!-- TO ADD: <img src="images/p2-hero.jpg" alt="Config System"> -->
     <div class="pmod-img-ph">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
-      <span>Hero Image</span><small>1600 × 700px recommended</small>
     </div>
   </div>
   <div class="pmod-body">
-    <h2 class="pmod-title">Distributed Config Management System</h2>
+    <h2 class="pmod-title">Gravity Anomaly Detection Satellite</h2>
     <div class="pmod-tags">
       <span class="tag">Go</span><span class="tag">gRPC</span><span class="tag">Raft</span><span class="tag">Docker</span><span class="tag">Protobuf</span>
     </div>
     <div class="pmod-meta">
-      <div class="pmod-meta-item"><div class="pmod-meta-label">Timeline</div><div class="pmod-meta-val">5 months</div></div>
+      <div class="pmod-meta-item"><div class="pmod-meta-label">Timeline</div><div class="pmod-meta-val">Continuous</div></div>
       <div class="pmod-meta-item"><div class="pmod-meta-label">Role</div><div class="pmod-meta-val">Sole Author</div></div>
-      <div class="pmod-meta-item"><div class="pmod-meta-label">Clients</div><div class="pmod-meta-val">10k concurrent</div></div>
     </div>
     <div class="pmod-section">
       <div class="pmod-section-title">Overview</div>
       <div class="pmod-text">
-        <p>A strongly-consistent, distributed key-value store designed for storing and distributing runtime configuration to large microservice fleets. Services subscribe to config keys and receive push notifications within milliseconds — no polling required.</p>
-        <p>Inspired by etcd and Consul, but with a simpler operational model and first-class support for hot-reload semantics without service restarts.</p>
+        <p>Using previously obtained GRACE Satellite data, I'm developing a new design of gravity anomaly detection to predict and monitor climate change impacts.
+          The design utilizes a single satellite with an atomic clock to precisely measure gravity changes based on time relativistic data, working off Einstein's theory of relativity.
+          Current GRACE satellite missions consists of two satellites measuring distance changes due to gravity using laser-ranging and microwave-ranging technology, 
+          which is slightly outdated and satellites take time to accelerate, delaying the gravity measurement. Time change is nearly instantaenous and is far mroe accurate, allowing for high-degree data.
+        </p>
+        <p>
+          I am currently working on a MATLAB script to recreate GRACE satellite orbits to visualize how the frequency of atomic 
+          clocks change due to gravity data. This will allow for proof of concept while I write a paper on future designs and 
+          what technology will be required.
+        </p>
       </div>
     </div>
     <div class="pmod-section">
       <div class="pmod-section-title">Technical Detail</div>
-      <div class="pmod-img-grid">
-        <div>
-          <div class="pmod-inline-img">
-            <!-- TO ADD: <img src="images/p2-raft.jpg" alt="Raft diagram"> -->
-            <div class="pmod-img-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="3"/><circle cx="4" cy="6" r="2"/><circle cx="20" cy="6" r="2"/><circle cx="4" cy="18" r="2"/><circle cx="20" cy="18" r="2"/></svg><span>Raft Diagram</span></div>
-          </div>
-          <p class="pmod-img-cap">Leader election flow</p>
-        </div>
-        <div>
-          <div class="pmod-inline-img">
-            <!-- TO ADD: <img src="images/p2-bench.jpg" alt="Benchmarks"> -->
-            <div class="pmod-img-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg><span>Benchmarks</span></div>
-          </div>
-          <p class="pmod-img-cap">Read/write latency</p>
-        </div>
-      </div>
       <div class="pmod-text">
-        <p>Consensus is implemented via the Raft algorithm. A 3-node cluster tolerates one leader failure with automatic re-election. Mutations go through the leader; reads can be served by any replica with configurable consistency guarantees.</p>
+        <p>Current GRACE satellite utilize distance montoring between two satellites to measure gravity changes across the globe.
+          By using laser-ranging technology, the satellites can measure changes in distances down to a micrometer. However, the delay
+          the satellites to move from each other and the cost manfuacturing two satellites begs the question if there is an alternative.
+
+          I am currently working on a new design to implement a singular satellite GRACE missions using time dilation to measure gravity changes.
+          By using atomic clocks, gravity changes can be measured instantaneously, reducing operational cost and manfuacturing and launch cost.
+          This would also give far more details models of the Earth's gravitational field with the same overall goal of monnitoring and predicting
+          climate change effects such as ice sheet mass shifts and sea level rise.
+
+          Currently I am developing MATLAB simulatiosn to accurately showcase how atomic clock frequency would change based on 
+          previously collected GRACE satellite data. By doing this, I can get a more clear idea how effective the method is and how timing
+          errors are affected using thiss method. Additionally, it provides visuals for those learning about such missions, as well as having
+          a comparison to current models. This project is a continous project that I hope to finish before I complete my undergrad.
+        </p>
       </div>
     </div>
     <div class="pmod-section">
       <div class="pmod-section-title">Key Features</div>
       <ul class="pmod-bullets">
-        <li>Raft-based replication with automatic leader failover in under 500ms.</li>
-        <li>gRPC streaming API for zero-latency config push to subscribed clients.</li>
-        <li>Full audit log of every change with timestamps and author identity.</li>
-        <li>Versioned keys with one-command rollback to any previous state.</li>
+        <li>Variable orbital element implentation, displaying orbital path with colormap to display frequency change across
+          any orbit.
+        </li>
+        <li>Specifies locations of increase frequency change of atomic clocks based on any GRACE data model.</li>
+        <li>Fully tunable for any dataset, color map, or choose between gravtational map or frequency map.</li>
       </ul>
-    </div>
-    <div class="pmod-link-row">
-      <a class="btn btn-solid" href="#">View on GitHub</a>
     </div>
   </div>
 </div>
